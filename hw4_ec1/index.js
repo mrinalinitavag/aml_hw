@@ -51,8 +51,8 @@ function doPredict(predict) {
   score_string = "R,G,B: ";
   fill_string = "rgb("
   for (var x in result.score) {
-    score_string += x + " ->  " + (result.score[x]*255).toFixed(0) + ", ";
-    fill_string += x + " ->  " + (result.score[x]*255).toFixed(0) + ", "
+    score_string += (result.score[x]*255).toFixed(0) + ", ";
+    fill_string += (result.score[x]*255).toFixed(0) + ", ";
   }
   //console.log(score_string);
   status(
