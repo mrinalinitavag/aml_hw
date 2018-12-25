@@ -1,0 +1,49 @@
+
+<!doctype html>
+
+<body>
+  <style>
+    #textfield {
+      font-size: 120%;
+      width: 60%;
+      height: 200px;
+    }
+  </style>
+  <h1>
+    Predicting RGB Levels of Colors
+  </h1>
+  <hr>
+  <div class="create-model">
+    <button id="load-model" style="display:none">Load model</button>
+  </div>
+  <div>
+    <div>
+      <span>Max length: </span>
+      <span id="maxLen"></span>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <span>Select a color: </span>
+    <select id="example-select" class="form-control">
+      <option value="example1">parakeet</option>
+      <option value="example2">airbrushed copper</option>
+      <option value="example3">coral bead</option>
+    </select>
+  </div>
+  <div>
+    <span>OR</span>
+    <span>Enter the name of your own color: </span>
+    <textarea id="text-entry"></textarea>
+  </div>
+  <hr>
+  <div>
+    <span id="status">Standing by.</span>
+    <svg width="500" height="300">
+      <rect id="patch" x="20" y="20" width="460" height="260" fill="white"</rect>
+    </svg>
+  </div>
+
+  <script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js'></script>
+  <script src='index.js'></script>
+</body>
