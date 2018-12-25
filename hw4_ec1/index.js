@@ -26,7 +26,7 @@ function color(colorText) {
 }
 
 function showMetadata(metadataJSON) {
-  document.getElementById('maxLen').textContent =
+  document.getElementById('maxlen').textContent =
       metadataJSON['max_len'];
 }
 
@@ -57,8 +57,7 @@ function doPredict(predict) {
   //console.log(score_string);
   status(
       score_string + ' elapsed: ' + result.elapsed.toFixed(3) + ' ms)');
-  var len = fill_string.length;
-  color(fill_string.slice(len-2, len) + ")");
+  color(fill_string.slice(fill_string.length-2, fill_string.length) + ")");
 }
 
 function prepUI(predict) {
@@ -119,8 +118,8 @@ class Classifier {
     const metadata =
         await loadHostedMetadata(this.urls.metadata);
     showMetadata(metadata);
-    this.maxLen = metadata['max_len'];
-    console.log('maxLen = ' + this.maxLen);
+    this.maxlen = metadata['max_len'];
+    console.log('maxlen = ' + this.maxlen);
     this.wordIndex = metadata['word_index']
   }
 
@@ -129,7 +128,7 @@ class Classifier {
     const inputText =
         text.trim().toLowerCase().replace(/(\.|\,|\!)/g, '').split('');
     // Look up char indices.
-    const inputBuffer = tf.buffer([1, this.maxLen], 'float32');
+    const inputBuffer = tf.buffer([1, this.maxlen], 'float32');
     for (let i = 0; i < inputText.length; ++i) {
       const word = inputText[i];
       inputBuffer.set(this.wordIndex[word], 0, i);
