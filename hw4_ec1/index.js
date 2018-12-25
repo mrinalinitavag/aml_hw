@@ -57,7 +57,7 @@ function doPredict(predict) {
   //console.log(score_string);
   status(
       score_string + ' elapsed: ' + result.elapsed.toFixed(3) + ' ms)');
-  color(fill_string.slice(fill_string.length-2, fill_string.length) + ")");
+  color(fill_string.slice(0,fill_string.length-2) + ")");
 }
 
 function prepUI(predict) {
